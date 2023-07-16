@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    color: inherit;
+    font-family: Overpass;
+}
+
+body{
+    background:hsl(216, 12%, 8%);
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+main{
+    background: hsl(213, 19%, 18%);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.teste-qualidade,.agradecimentos{
+    display: none;
+}
+
+.teste-qualidade.ativo,.agradecimentos.ativo{
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+.teste-qualidade::before{
+    display: block;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background: url("./images/icon-star.svg") hsla(216, 12%, 54%,.2) center no-repeat;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+section h1{
+    font-size: 1.875rem;
+    color: hsl(0, 0%, 100%);
+    margin-bottom: 10px;
+}
+
+section p{
+    max-width: 40ch;
+    color: hsl(216, 12%, 54%);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form input{
+    appearance: none;
+}
+
+form ul{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+form ul li label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: hsla(216, 12%, 54%,.2);
+    border-radius: 50%;
+    color: hsl(216, 12%, 54%);
+    cursor: pointer;
+    transition: .3s;
+}
+
+form ul li label:hover,
+form ul li input:focus + label{
+    background: hsla(216, 10%, 50%,.5);
+    color: hsl(0, 0%, 100%);
+}
+
+form ul li input:checked + label{
+    background: hsl(25, 97%, 53%);
+    color: hsl(0, 0%, 100%);
+}
+
+button{
+    padding: 15px 30px;
+    background: hsl(25, 97%, 53%);
+    color: hsl(0, 0%, 100%);
+    border: none;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: .3s;
+    cursor: pointer;
+    font-size: 1.125rem;
+}
+
+button:hover,
+button:focus{
+    background: hsl(0, 0%, 100%);
+    color: hsl(25, 97%, 53%);
+}
+
+.agradecimentos{
+    text-align: center;
+}
+
+.agradecimentos::before{
+    content: url("./images/illustration-thank-you.svg");
+    margin-bottom: 20px;
+}
+
+.agradecimentos h1{
+    margin: 20px 0;
+}
+
+.agradecimentos span{
+    color: hsl(25, 97%, 53%);
+    background: hsla(216, 12%, 54%,.2);
+    padding: 8px 20px 6px ;
+    border-radius: 30px;
+}
