@@ -1,25 +1,27 @@
-const botoes = document.querySelectorAll(".botoes label");
+const botoes = document.querySelectorAll("li");
+const btnEnviar = document.getElementById("enviar");
 
-let btn = 0;
+let opt = 0;
 function selecionar(item) {
-  btn = +item.target.innerText;
-  console.log(item);
+  opt = +item.currentTarget.innerText;
 }
 
-botoes.forEach((itens) => {
-  itens.addEventListener("click", selecionar);
-});
-
 function enviar() {
-  if (btn >= 1 && btn <= 5) {
-    const hide = document.querySelector(".teste-qualidade");
-    hide.classList.remove("ativo");
-    const show = document.querySelector(".agradecimentos");
-    show.classList.add("ativo");
-    dc.innerText = `You selected ${btn} out of 5`;
+  if (opt > 0 && opt <= 5) {
+    document.querySelector(".teste-qualidade").classList.remove("ativo");
+    document.querySelector(".agradecimentos").classList.add("ativo");
+    document.querySelector(
+      ".agradecimentos div span"
+    ).innerText = `You selected ${opt} out of 5`;
   } else {
-    alert("Select an Option, Please");
+    window.alert("Please select an option");
   }
 }
 
+botoes.forEach((item) => {
+  item.addEventListener("click", selecionar);
+});
 
+btnEnviar.addEventListener("click", enviar);
+
+console.log(botoes);
