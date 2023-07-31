@@ -3,137 +3,138 @@
 * {
   padding: 0;
   margin: 0;
-  text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
   color: inherit;
-  font-family: Overpass;
+  list-style: none;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
 }
 
 body {
-  background: hsl(216, 12%, 8%);
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
   height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: hsl(216, 12%, 8%);
   padding: 20px;
 }
-
 main {
-  background: hsl(213, 19%, 18%);
-  border-radius: 20px;
+  background: hsl(213, 30%, 15%);
+  max-width: 400px;
+  border-radius: 25px;
   padding: 30px;
+  box-shadow: 1px 1px 5px 1px hsla(216, 15%, 5%, 0.3);
+  margin-bottom: 20px;
 }
-
 .teste-qualidade,
 .agradecimentos {
   display: none;
 }
-
 .teste-qualidade.ativo,
 .agradecimentos.ativo {
   display: flex;
-  gap: 5px;
   flex-direction: column;
+  gap: 10px;
 }
 .teste-qualidade::before {
-  display: block;
   content: "";
+  background: url("./images/icon-star.svg") center no-repeat hsla(213, 30%, 20%);
   width: 50px;
   height: 50px;
-  background: url("./images/icon-star.svg") hsla(216, 12%, 54%, 0.2) center
-    no-repeat;
   border-radius: 50%;
   margin-bottom: 20px;
 }
 
-section h1 {
-  font-size: 1.875rem;
+.teste-qualidade h1,
+.agradecimentos h1 {
   color: hsl(0, 0%, 100%);
-  margin-bottom: 10px;
+  font-size: 2rem;
+  font-family: "Overpass";
 }
-
-section p {
-  max-width: 40ch;
+.teste-qualidade p,
+.agradecimentos p {
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: hsl(216, 12%, 54%);
   margin-bottom: 20px;
-  line-height: 1.6;
+  font-family: "Overpass";
 }
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-form input {
-  appearance: none;
-}
-
-form ul {
+.botoes {
   display: flex;
   gap: 10px;
-  justify-content: space-between;
   margin-bottom: 20px;
+  justify-content: space-between;
 }
 
-form ul li label {
+.botoes input {
+  display: none;
+}
+
+.botoes label {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  font-family: "Overpass";
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 2;
   width: 60px;
   height: 60px;
-  background: hsla(216, 12%, 54%, 0.2);
-  border-radius: 50%;
   color: hsl(216, 12%, 54%);
-  cursor: pointer;
-  transition: 0.3s;
+  background: hsla(213, 30%, 20%);
 }
 
-form ul li label:hover,
-form ul li input:focus + label {
-  background: hsla(216, 10%, 50%, 0.5);
+.botoes label:hover {
+  background: hsl(213, 10%, 40%);
   color: hsl(0, 0%, 100%);
 }
 
-form ul li input:checked + label {
-  background: hsl(25, 97%, 53%);
+.botoes input:checked + label {
+  background: hsl(25, 90%, 53%);
   color: hsl(0, 0%, 100%);
 }
 
-button {
-  padding: 15px 30px;
-  background: hsl(25, 97%, 53%);
+#enviar {
+  display: flex;
+  justify-content: center;
+  background: hsl(25, 90%, 53%);
   color: hsl(0, 0%, 100%);
-  border: none;
-  border-radius: 30px;
   text-transform: uppercase;
+  font-size: 1rem;
+  padding: 10px;
   letter-spacing: 2px;
+  border-radius: 30px;
+  font-family: "Overpass";
   transition: 0.3s;
-  cursor: pointer;
-  font-size: 1.125rem;
+  width: 100%;
 }
 
-button:hover,
-button:focus {
+#enviar:hover,
+#enviar:focus {
   background: hsl(0, 0%, 100%);
-  color: hsl(25, 97%, 53%);
+  color: hsl(25, 90%, 53%);
+  cursor: pointer;
 }
 
-.agradecimentos {
+.agradecimentos.ativo {
   text-align: center;
+  font-family: "Overpass";
 }
-
-.agradecimentos::before {
-  content: url("./images/illustration-thank-you.svg");
-  margin-bottom: 20px;
-}
-
-.agradecimentos h1 {
+.agradecimentos div {
   margin: 20px 0;
 }
 
 .agradecimentos span {
-  color: hsl(25, 97%, 53%);
-  background: hsla(216, 12%, 54%, 0.2);
   padding: 8px 20px 6px;
+  background: hsla(213, 30%, 20%);
+  color: hsl(25, 90%, 53%);
   border-radius: 30px;
+  font-size: 0.875rem;
+}
+
+.agradecimentos::before {
+  content: url("./images/illustration-thank-you.svg");
 }
